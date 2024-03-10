@@ -1,1 +1,1 @@
-[![Build Status](https://app.travis-ci.com/omerilbilgi/myDemoApp.svg?token=y5H4spuYkdBebPpEd2Kp&branch=master)](https://app.travis-ci.com/omerilbilgi/myDemoApp)
+(https://app.travis-ci.com/omerilbilgi/myDemoApp.svg?token=y5H4spuYkdBebPpEd2Kp&branch=master)
