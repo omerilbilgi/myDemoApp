@@ -56,7 +56,7 @@ public class App
         //System.out.println(req.queryParams("input1"));
         //System.out.println(req.queryParams("input2"));
 
-        String input1 = req.queryParams("input1");
+        String input4 = req.queryParams("input4");
         java.util.Scanner sc1 = new java.util.Scanner(input1);
         sc1.useDelimiter("[;\r\n]+");
         java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
@@ -70,8 +70,14 @@ public class App
 
         String input2 = req.queryParams("input2").replaceAll("\\s","");
         int input2AsInt = Integer.parseInt(input2);
+        
+        String input3 = req.queryParams("input3").replaceAll("\\s","");
+        int input3AsInt = Integer.parseInt(input2);
+        
+        String input1 = req.queryParams("input1").replaceAll("\\s","");
+    
 
-        boolean result = App.search(inputList, input2AsInt);
+        boolean result = App.findMostFrequentNumber(input1, input2AsInt, input3AsInt, inputList);
 
        Map map = new HashMap();
         map.put("result", result);
