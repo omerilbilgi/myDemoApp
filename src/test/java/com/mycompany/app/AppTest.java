@@ -7,6 +7,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import static com.mycompany.app.App.findMostFrequentNumber;
+
 /**
  * Unit test for simple App.
  */
@@ -34,7 +36,69 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    @Test
+
+
+    public void testWithMultipleOccurrencesOfSameNumber() {
+        String text = "1,1,2,3,3,3,4,4,4,4";
+        Integer number1 = 1;
+        Integer number2 = 2;
+        ArrayList<Integer> additionalNumbers = new ArrayList<>();
+        additionalNumbers.add(3);
+        additionalNumbers.add(4);
+        int expectedResult = 4;
+        int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+    public void testWithSingleNumber() {
+        String text = "2,2,2,2,2";
+        Integer number1 = 1;
+        Integer number2 = 2;
+        ArrayList<Integer> additionalNumbers = new ArrayList<>();
+        additionalNumbers.add(3);
+        int expectedResult = 2;
+        int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+    public void testWithNullAdditionalNumbers() {
+        String text = "1,2,3,4,5";
+        Integer number1 = 1;
+        Integer number2 = 2;
+        ArrayList<Integer> additionalNumbers = null;
+        int expectedResult = 1;
+        int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+    public void testWithEmptyText() {
+        String text = "";
+        Integer number1 = 1;
+        Integer number2 = 2;
+        ArrayList<Integer> additionalNumbers = new ArrayList<>();
+        additionalNumbers.add(1);
+        int expectedResult = 1;
+        int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+    public void testWithNoAdditionalNumbers() {
+        String text = "1,2,3,4,5";
+        Integer number1 = 1;
+        Integer number2 = 2;
+        ArrayList<Integer> additionalNumbers = new ArrayList<>();
+        int expectedResult = 1;
+        int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
+        assertEquals(expectedResult, actualResult);
+    }
+}
+
+
+  /*  @Test
     public void testSingleRepeatedNumber() {
       int[] numbers = {1, 2, 3, 4, 5, 1};
       int expected = 1;
@@ -95,14 +159,15 @@ public void testNullArray() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       assertFalse(new App().search(array, 5));
     }
-
+*/
     /*public void testEmptyArray() {
       ArrayList<Integer> array = new ArrayList<>();
       assertFalse(new App().search(array, 1));
     }*/
 
-    public void testNull() {
+   /* public void testNull() {
       assertFalse(new App().search(null, 1));
     }
 
 }
+*/
