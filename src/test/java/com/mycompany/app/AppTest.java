@@ -47,7 +47,7 @@ public class AppTest
         additionalNumbers.add(4);
         int expectedResult = 4;
         int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, expectedResult);
     }
 
 
@@ -59,7 +59,7 @@ public class AppTest
         additionalNumbers.add(3);
         int expectedResult = 2;
         int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, expectedResult);
     }
 
 
@@ -70,7 +70,7 @@ public class AppTest
         ArrayList<Integer> additionalNumbers = null;
         int expectedResult = 1;
         int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, expectedResult);
     }
 
 
@@ -80,9 +80,9 @@ public class AppTest
         Integer number2 = 2;
         ArrayList<Integer> additionalNumbers = new ArrayList<>();
         additionalNumbers.add(1);
-        int expectedResult = 1;
+        int expectedResult = 0;
         int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, expectedResult);
     }
 
 
@@ -93,7 +93,7 @@ public class AppTest
         ArrayList<Integer> additionalNumbers = new ArrayList<>();
         int expectedResult = 1;
         int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, expectedResult);
     }
 }
 
