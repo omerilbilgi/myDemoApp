@@ -4,9 +4,7 @@ import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.post;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
@@ -57,7 +55,7 @@ public class App
         //System.out.println(req.queryParams("input2"));
 
         String input4 = req.queryParams("input4");
-        java.util.Scanner sc1 = new java.util.Scanner(input1);
+        java.util.Scanner sc1 = new java.util.Scanner(input4);
         sc1.useDelimiter("[;\r\n]+");
         java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
         while (sc1.hasNext())
@@ -77,7 +75,7 @@ public class App
         String input1 = req.queryParams("input1").replaceAll("\\s","");
     
 
-        boolean result = App.findMostFrequentNumber(input1, input2AsInt, input3AsInt, inputList);
+        int result = App.findMostFrequentNumber(input1, input2AsInt, input3AsInt, inputList);
 
        Map map = new HashMap();
         map.put("result", result);
