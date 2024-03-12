@@ -13,15 +13,40 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
-      System.out.println("inside search");
-      if (array == null) return false;
-
-      for (int elt : array) {
-        if (elt == e) return true;
+  public static int findMostFrequentNumber(String text, Integer number1, Integer number2, ArrayList<Integer> additionalNumbers) {
+    // 1. Extract all integers from the text (assuming comma separated)
+    Set<Integer> allNumbers = new HashSet<>();
+    for (String numberString : text.split(",")) {
+      try {
+        int number = Integer.parseInt(numberString);
+        allNumbers.add(number);
+      } catch (NumberFormatException e) {
+        // Ignore non-integer strings
       }
-      return false;
     }
+    
+    // 2. Add the provided parameters
+    allNumbers.add(number1);
+    allNumbers.add(number2);
+    if (additionalNumbers != null) {
+      allNumbers.addAll(additionalNumbers);
+    }
+    
+    // 3. Find the number with the highest frequency
+    int mostFrequentNumber = -1;
+    int maxCount = 0;
+    for (int number : allNumbers) {
+      int count = Collections.frequency(allNumbers, number);
+      if (count > maxCount) {
+        maxCount = count;
+        mostFrequentNumber = number;
+      }
+    }
+    
+    // 4. Return the most frequent number
+    return mostFrequentNumber;
+  }
+  
     public static void main(String[] args) {
       port(getHerokuAssignedPort());
 

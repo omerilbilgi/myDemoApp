@@ -34,6 +34,53 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
+    @Test
+    public void testSingleRepeatedNumber() {
+      int[] numbers = {1, 2, 3, 4, 5, 1};
+      int expected = 1;
+      int actual = findMostFrequentNumber(numbers);
+      assertEquals(expected, actual);
+    }
+    
+    @Test
+public void testMultipleRepeatedNumber() {
+  int[] numbers = {1, 2, 3, 4, 5, 1, 1};
+  int expected = 1;
+  int actual = findMostFrequentNumber(numbers);
+  assertEquals(expected, actual);
+}
+
+
+@Test
+public void testAllNumbersDifferent() {
+  int[] numbers = {1, 2, 3, 4, 5};
+  int expected = -1; // Hiç tekrarlanan sayı yok
+  int actual = findMostFrequentNumber(numbers);
+  assertEquals(expected, actual);
+}
+
+@Test
+public void testEmptyArray() {
+  int[] numbers = {};
+  int expected = -1; // Hiç tekrarlanan sayı yok
+  int actual = findMostFrequentNumber(numbers);
+  assertEquals(expected, actual);
+}
+
+@Test
+public void testNullArray() {
+  int[] numbers = null;
+  int expected = -1; // Hiç tekrarlanan sayı yok
+  int actual = findMostFrequentNumber(numbers);
+  assertEquals(expected, actual);
+}
+
+
+
+
+
+
+
     public void testApp()
     {
         assertTrue( true );
@@ -49,10 +96,10 @@ public class AppTest
       assertFalse(new App().search(array, 5));
     }
 
-    public void testEmptyArray() {
+    /*public void testEmptyArray() {
       ArrayList<Integer> array = new ArrayList<>();
       assertFalse(new App().search(array, 1));
-    }
+    }*/
 
     public void testNull() {
       assertFalse(new App().search(null, 1));
