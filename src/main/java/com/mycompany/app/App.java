@@ -11,9 +11,22 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-  public static int findMostFrequentNumber(String text, Integer number1, Integer number2, ArrayList<Integer> additionalNumbers) {
+  public static String concatenateString(ArrayList<Integer> list, Integer number1, Integer number2, String text) {
+    
+    String a = "";
+    if (!list.isEmpty()) {
+        for (int i = 0; i < list.size(); i++) {
+            a += list.get(i) + " ";
+        }
+    }
+    a += number1 + " "; 
+    a += number2 + " ";
+    if (text != null)
+        a += text;
+
+    return a;
     // 1. Extract all integers from the text (assuming comma separated)
-    Set<Integer> allNumbers = new HashSet<>();
+    /*Set<Integer> allNumbers = new HashSet<>();
     for (String numberString : text.split(",")) {
       try {
         int number = Integer.parseInt(numberString);
@@ -42,7 +55,7 @@ public class App
     }
     
     // 4. Return the most frequent number
-    return mostFrequentNumber;
+    return mostFrequentNumber;*/
   }
   
     public static void main(String[] args) {
@@ -75,7 +88,7 @@ public class App
         String input1 = req.queryParams("input1").replaceAll("\\s","");
     
 
-        int result = App.findMostFrequentNumber(input1, input2AsInt, input3AsInt, inputList);
+        String result = App.concatenateString(inputList, input2AsInt, input3AsInt, input1);
 
        Map map = new HashMap();
         map.put("result", result);

@@ -7,7 +7,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import static com.mycompany.app.App.findMostFrequentNumber;
+import static com.mycompany.app.App.concatenateString;
 
 /**
  * Unit test for simple App.
@@ -37,7 +37,65 @@ public class AppTest
      * Rigourous Test :-)
      */
 
+    public void testConcatenateStringWithEmptyList() {
+        ArrayList<Integer> list = new ArrayList<>();
+        Integer number1 = 10;
+        Integer number2 = 20;
+        String text = "Hello World";
+        String expectedResult = "10 20 Hello World";
+        String actualResult = App.concatenateString(list, number1, number2, text);
+        assertEquals(expectedResult, actualResult);
+    }
 
+
+    public void testConcatenateStringWithNonEmptyList() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        Integer number1 = 10;
+        Integer number2 = 20;
+        String text = "Hello World";
+        String expectedResult = "1 2 3 10 20 Hello World";
+        String actualResult = App.concatenateString(list, number1, number2, text);
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+    public void testConcatenateStringWithNullText() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        Integer number1 = 10;
+        Integer number2 = 20;
+        String text = null;
+        String expectedResult = "1 10 20 ";
+        String actualResult = App.concatenateString(list, number1, number2, text);
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+    public void testConcatenateStringWithEmptyText() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        Integer number1 = 10;
+        Integer number2 = 20;
+        String text = "";
+        String expectedResult = "1 10 20 ";
+        String actualResult = App.concatenateString(list, number1, number2, text);
+        assertEquals(expectedResult, actualResult);
+    }
+
+
+    public void testConcatenateStringWithEmptyListAndText() {
+        ArrayList<Integer> list = new ArrayList<>();
+        Integer number1 = 10;
+        Integer number2 = 20;
+        String text = "";
+        String expectedResult = "10 20 ";
+        String actualResult = App.concatenateString(list, number1, number2, text);
+        assertEquals(expectedResult, actualResult);
+    }
+/*
     public void testWithMultipleOccurrencesOfSameNumber() {
         String text = "1,1,2,3,3,3,4,4,4,4";
         Integer number1 = 1;
@@ -47,7 +105,7 @@ public class AppTest
         additionalNumbers.add(4);
         int expectedResult = 4;
         int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
-        assertEquals(expectedResult, expectedResult);
+        assertEquals(expectedResult, actualResult);
     }
 
 
@@ -94,7 +152,7 @@ public class AppTest
         int expectedResult = 1;
         int actualResult = App.findMostFrequentNumber(text, number1, number2, additionalNumbers);
         assertEquals(expectedResult, expectedResult);
-    }
+    }*/
 }
 
 
