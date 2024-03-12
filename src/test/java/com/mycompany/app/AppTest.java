@@ -39,10 +39,13 @@ public class AppTest
 
     public void testConcatenateStringWithEmptyList() {
         ArrayList<Integer> list = new ArrayList<>();
-        Integer number1 = 10;
+       // Integer[] number1 = {10,5};
+        Integer[] number1 = new Integer[2];
+        number1[0] = 10;
+        number1[1] = 5;
         Integer number2 = 20;
         String text = "Hello World";
-        String expectedResult = "10 20 Hello World";
+        String expectedResult = "10 5 20 Hello World";
         String actualResult = App.concatenateString(list, number1, number2, text);
         assertEquals(expectedResult, actualResult);
     }
@@ -53,10 +56,12 @@ public class AppTest
         list.add(1);
         list.add(2);
         list.add(3);
-        Integer number1 = 10;
+        Integer[] number1 = new Integer[2];
+        number1[0] = 10;
+        number1[1] = 5;
         Integer number2 = 20;
         String text = "Hello World";
-        String expectedResult = "1 2 3 10 20 Hello World";
+        String expectedResult = "1 2 3 10 5 20 Hello World";
         String actualResult = App.concatenateString(list, number1, number2, text);
         assertEquals(expectedResult, actualResult);
     }
@@ -65,10 +70,12 @@ public class AppTest
     public void testConcatenateStringWithNullText() {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
-        Integer number1 = 10;
+        Integer[] number1 = new Integer[2];
+        number1[0] = 10;
+        number1[1] = 5;
         Integer number2 = 20;
         String text = null;
-        String expectedResult = "1 10 20 ";
+        String expectedResult = "1 10 5 20 ";
         String actualResult = App.concatenateString(list, number1, number2, text);
         assertEquals(expectedResult, actualResult);
     }
@@ -77,10 +84,12 @@ public class AppTest
     public void testConcatenateStringWithEmptyText() {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
-        Integer number1 = 10;
+        Integer[] number1 = new Integer[2];
+        number1[0] = 10;
+        number1[1] = 5;
         Integer number2 = 20;
         String text = "";
-        String expectedResult = "1 10 20 ";
+        String expectedResult = "1 10 5 20 ";
         String actualResult = App.concatenateString(list, number1, number2, text);
         assertEquals(expectedResult, actualResult);
     }
@@ -88,10 +97,12 @@ public class AppTest
 
     public void testConcatenateStringWithEmptyListAndText() {
         ArrayList<Integer> list = new ArrayList<>();
-        Integer number1 = 10;
+        Integer[] number1 = new Integer[2];
+        number1[0] = 10;
+        number1[1] = 5;
         Integer number2 = 20;
         String text = "";
-        String expectedResult = "10 20 ";
+        String expectedResult = "10 5 20 ";
         String actualResult = App.concatenateString(list, number1, number2, text);
         assertEquals(expectedResult, actualResult);
     }

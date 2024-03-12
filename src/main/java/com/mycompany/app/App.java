@@ -11,7 +11,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-  public static String concatenateString(ArrayList<Integer> list, Integer number1, Integer number2, String text) {
+  public static String concatenateString(ArrayList<Integer> list, Integer[] number1, Integer number2, String text) {
     
     String a = "";
     if (!list.isEmpty()) {
@@ -19,7 +19,9 @@ public class App
             a += list.get(i) + " ";
         }
     }
-    a += number1 + " "; 
+    for (int i = 0; i < (int) number1.length; i++) {
+        a += (int)number1[i] + " ";
+    }
     a += number2 + " ";
     if (text != null)
         a += text;
@@ -78,9 +80,28 @@ public class App
         }
         System.out.println(inputList);
 
+          // Input 2
+          String input2 = req.queryParams("input2");
+          Scanner sc2 = new Scanner(input2);
+          sc2.useDelimiter("[;\r\n]+");
+          ArrayList<Integer> temp1 = new ArrayList<>();
 
-        String input2 = req.queryParams("input2").replaceAll("\\s","");
-        int input2AsInt = Integer.parseInt(input2);
+          while (sc2.hasNext()) {
+              int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
+              temp1.add(value);
+          }
+
+          Integer[] changeArray = new Integer[(temp1.size())];
+          for (int i = 0; i < temp1.size(); i++) {
+              changeArray[i] = temp1.get(i);
+          }
+          System.out.println(changeArray);
+          sc2.close();
+
+
+
+        /*String input2 = req.queryParams("input2").replaceAll("\\s","");
+        int input2AsInt = Integer.parseInt(input2);*/
         
         String input3 = req.queryParams("input3").replaceAll("\\s","");
         int input3AsInt = Integer.parseInt(input2);
@@ -88,7 +109,7 @@ public class App
         String input1 = req.queryParams("input1").replaceAll("\\s","");
     
 
-        String result = App.concatenateString(inputList, input2AsInt, input3AsInt, input1);
+        String result = App.concatenateString(inputList, changeArray, input3AsInt, input1);
 
        Map map = new HashMap();
         map.put("result", result);
